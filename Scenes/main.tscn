@@ -8,3 +8,6 @@ script = ExtResource("1_jjgbg")
 initialRoom = ExtResource("2_bo1nx")
 
 [node name="RoomHolder" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(962, 542)

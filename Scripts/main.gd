@@ -1,12 +1,26 @@
 extends Node
 
-var current_room: Node2D = null
 @onready var room_holder = $RoomHolder
+@onready var camera = $Camera2D
+
 @export var initialRoom: PackedScene
+
+var current_room: Node2D = null
+var left: bool = false
+var right: bool = false
+var camera_limits := Rect2(Vector2(0, 0), Vector2(3000, 2000))
 
 func _ready():
 	var initial_room = initialRoom.instantiate()
 	change_room(initial_room)
+
+func _process(_delta):
+	var mouse_move = get_viewport().get_mouse_position() - Vector2(get_viewport().size) / 2.0
+	var camera_speed := 0.07
+
+	camera.position += mouse_move * camera_speed
+	camera.position.x = clamp(camera.position.x, camera_limits.position.x, camera_limits.position.x + camera_limits.size.x - get_viewport().size.x)
+	camera.position.y = clamp(camera.position.y, camera_limits.position.y, camera_limits.position.y + camera_limits.size.y - get_viewport().size.y)
 
 func _input(event):
 	if event.is_action_pressed("ui_up"):

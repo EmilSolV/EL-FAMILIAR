@@ -1,10 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://bky8alfx2ucl2"]
+[gd_scene load_steps=5 format=3 uid="uid://bky8alfx2ucl2"]
 
 [ext_resource type="Script" uid="uid://e2ey6a38uckk" path="res://Scripts/room.gd" id="1_ojurl"]
+[ext_resource type="Texture2D" uid="uid://8l82ebqevoye" path="res://Assets/Background/5.jpeg" id="2_p3txt"]
+
+[sub_resource type="Shader" id="Shader_26eai"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.4.1.stable's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_mix;
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_be18u"]
+shader = SubResource("Shader_26eai")
 
 [node name="Room5" type="Node2D"]
 script = ExtResource("1_ojurl")
 room_down_path = "res://Scenes/Rooms/Room4.tscn"
+
+[node name="Background" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_be18u")
+position = Vector2(-889, -607)
+scale = Vector2(2.32841, 2.32841)
+texture = ExtResource("2_p3txt")
+offset = Vector2(794.964, 495.618)
 
 [node name="TextEdit" type="TextEdit" parent="."]
 anchors_preset = 8
