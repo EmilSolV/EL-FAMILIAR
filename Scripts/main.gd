@@ -3,10 +3,12 @@ extends Node
 @onready var room_holder = $RoomHolder
 @onready var camera = $Camera2D
 @onready var center_area_2d: Area2D = $CenterArea2D
+@onready var inventory_label: Label = $Camera2D/CanvasLayer/InventoryLabel
 
 @export var initialRoom: PackedScene
 @export var camera_limit_position := Vector2(435, 400)
 @export var camera_limit_size := Vector2(2950, 1300)
+
 
 var current_room: Node2D = null
 var camera_limits := Rect2(camera_limit_position, camera_limit_size)
@@ -21,6 +23,10 @@ func _ready():
 func _process(delta):
 	_update_camera_position(delta)
 	_clamp_camera_within_limits()
+	
+	# momentaneo para probar el inventario
+	var items = Inventory.get_items()
+	inventory_label.text = "Inventario:\n" + "\n".join(items)
 
 func _input(event):
 	if event.is_action_pressed("ui_up"):
@@ -45,6 +51,7 @@ func _update_camera_position(delta):
 		var mouse_offset = get_viewport().get_mouse_position() - get_viewport().size / 2.0
 		camera.position += mouse_offset * camera_speed
 	else:
+		# lleva la cámara al centro. Se podría deshabilitar con la locura
 		var center = get_viewport().size / 2.0
 		camera.position = camera.position.lerp(center, delta * camera_return_speed)
 

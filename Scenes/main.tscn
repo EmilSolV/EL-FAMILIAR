@@ -14,6 +14,16 @@ initialRoom = ExtResource("2_bo1nx")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(962, 542)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="InventoryLabel" type="Label" parent="Camera2D/CanvasLayer"]
+offset_left = 47.0
+offset_top = 35.0001
+offset_right = 87.0
+offset_bottom = 58.0001
+scale = Vector2(4.65176, 3.58151)
+text = "Inventario:"
+
 [node name="CenterArea2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CenterArea2D"]

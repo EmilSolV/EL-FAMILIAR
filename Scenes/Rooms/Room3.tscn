@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://gr6osdj7l07i"]
+[gd_scene load_steps=6 format=3 uid="uid://gr6osdj7l07i"]
 
 [ext_resource type="Script" uid="uid://e2ey6a38uckk" path="res://Scripts/room.gd" id="1_gy1rm"]
 [ext_resource type="Texture2D" uid="uid://tuexg6v1x74a" path="res://Assets/Background/3.jpeg" id="2_t722u"]
+[ext_resource type="PackedScene" uid="uid://bboya8r52ilie" path="res://Scenes/Item.tscn" id="3_pt73s"]
 
 [sub_resource type="Shader" id="Shader_pt73s"]
 code = "// NOTE: Shader automatically converted from Godot Engine 4.4.1.stable's CanvasItemMaterial.
@@ -42,3 +43,17 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 50
 text = "3"
+
+[node name="Objects" type="Node" parent="."]
+
+[node name="Item1" parent="Objects" instance=ExtResource("3_pt73s")]
+position = Vector2(364, 717)
+item_name = "Item 7"
+
+[node name="Item2" parent="Objects" instance=ExtResource("3_pt73s")]
+position = Vector2(1929, 545)
+item_name = "Item 8"
+
+[node name="Item3" parent="Objects" instance=ExtResource("3_pt73s")]
+position = Vector2(1260, 14)
+item_name = "Item 9"
