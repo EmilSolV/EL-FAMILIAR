@@ -1,3 +1,9 @@
+Node
+Label
+CanvasLayer
+Sprite2D
+CollisionShape2D
+Area2D
+Camera2D
 Node2D
 TextEdit
-Node

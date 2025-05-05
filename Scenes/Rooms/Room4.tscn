@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3tl64gjocw6c"]
+[gd_scene load_steps=6 format=3 uid="uid://b3tl64gjocw6c"]
 
 [ext_resource type="Script" uid="uid://e2ey6a38uckk" path="res://Scripts/room.gd" id="1_x50d1"]
+[ext_resource type="Texture2D" uid="uid://c0vw0klll67aj" path="res://Assets/Background/4.jpeg" id="2_wrhok"]
+[ext_resource type="PackedScene" uid="uid://bboya8r52ilie" path="res://Scenes/Item.tscn" id="3_tgh4s"]
+
+[sub_resource type="Shader" id="Shader_tgh4s"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.4.1.stable's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_mix;
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_np3xl"]
+shader = SubResource("Shader_tgh4s")
 
 [node name="Room4" type="Node2D"]
 script = ExtResource("1_x50d1")
@@ -8,6 +20,13 @@ room_right_path = "res://Scenes/Rooms/Room2.tscn"
 room_left_path = "res://Scenes/Rooms/Room3.tscn"
 room_up_path = "res://Scenes/Rooms/Room5.tscn"
 room_down_path = "res://Scenes/Rooms/Room1.tscn"
+
+[node name="Background" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_np3xl")
+position = Vector2(-889, -607)
+scale = Vector2(2.32841, 2.32841)
+texture = ExtResource("2_wrhok")
+offset = Vector2(794.964, 495.618)
 
 [node name="TextEdit" type="TextEdit" parent="."]
 anchors_preset = 8
@@ -25,3 +44,17 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 50
 text = "4"
+
+[node name="Objects" type="Node" parent="."]
+
+[node name="Item1" parent="Objects" instance=ExtResource("3_tgh4s")]
+position = Vector2(217, 1265)
+item_name = "Item 10"
+
+[node name="Item2" parent="Objects" instance=ExtResource("3_tgh4s")]
+position = Vector2(962, 791)
+item_name = "Item 11"
+
+[node name="Item3" parent="Objects" instance=ExtResource("3_tgh4s")]
+position = Vector2(2657, 819)
+item_name = "Item 12"
