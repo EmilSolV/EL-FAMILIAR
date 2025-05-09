@@ -8,7 +8,9 @@ extends Node
 @export var initialRoom: PackedScene
 @export var camera_limit_position := Vector2(435, 400)
 @export var camera_limit_size := Vector2(2950, 1300)
+@export var inventory_scene: PackedScene
 
+var inventory_instance: Node = null
 
 var current_room: Node2D = null
 var camera_limits := Rect2(camera_limit_position, camera_limit_size)
@@ -27,16 +29,14 @@ func _process(delta):
 	# momentaneo para probar el inventario
 	var items = Inventory.get_items()
 	inventory_label.text = "Inventario:\n" + "\n".join(items)
+	
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+		_show_inventory()
+	else:
+		_hide_inventory()
 
 func _input(event):
-	if event.is_action_pressed("ui_up"):
-		_try_move_to("up")
-	elif event.is_action_pressed("ui_down"):
-		_try_move_to("down")
-	elif event.is_action_pressed("ui_left"):
-		_try_move_to("left")
-	elif event.is_action_pressed("ui_right"):
-		_try_move_to("right")
+	pass
 
 func _initialize_first_room():
 	var initial_room = initialRoom.instantiate()
@@ -81,3 +81,13 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	follow_mouse = true
+
+func _show_inventory():
+	if inventory_instance == null:
+		inventory_instance = inventory_scene.instantiate()
+		add_child(inventory_instance)
+
+func _hide_inventory():
+	if inventory_instance != null:
+		inventory_instance.queue_free()
+		inventory_instance = null

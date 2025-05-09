@@ -8,3 +8,5 @@ res://Scenes/Rooms/Room2.tscn
 res://Scenes/Rooms/Room3.tscn
 res://Scenes/Rooms/Room4.tscn
 res://Scenes/Rooms/Room5.tscn
+res://Scripts/transition_area.gd
+res://Scenes/Inventory.tscn

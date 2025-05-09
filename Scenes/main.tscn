@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5tuln3p7c6fu"]
+[gd_scene load_steps=5 format=3 uid="uid://b5tuln3p7c6fu"]
 
 [ext_resource type="Script" uid="uid://kpl5s5lketj0" path="res://Scripts/main.gd" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://bumejct4rvwl8" path="res://Scenes/Rooms/Room1.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://jc1i6cye3q88" path="res://Scenes/Inventory.tscn" id="3_8gbba"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bo1nx"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_jjgbg")
 initialRoom = ExtResource("2_bo1nx")
+inventory_scene = ExtResource("3_8gbba")
 
 [node name="RoomHolder" type="Node2D" parent="."]
 

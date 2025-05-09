@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://jc1i6cye3q88"]
+
+[ext_resource type="Texture2D" uid="uid://dthumwi5yvuvf" path="res://Assets/Background/4d789fdb-71d9-4bf4-8e96-81aebc50d1e9.png" id="1_ersrd"]
+
+[sub_resource type="Shader" id="Shader_o25ql"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.4.1.stable's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_mix;
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jbd0o"]
+shader = SubResource("Shader_o25ql")
+
+[node name="Inventory" type="CanvasLayer"]
+
+[node name="Background" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_jbd0o")
+position = Vector2(-39, 1)
+scale = Vector2(1.43394, 1.14326)
+texture = ExtResource("1_ersrd")
+offset = Vector2(794.964, 495.618)

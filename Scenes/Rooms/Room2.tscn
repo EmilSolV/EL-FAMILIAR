@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://da46xukg3yr3x"]
+[gd_scene load_steps=8 format=3 uid="uid://da46xukg3yr3x"]
 
 [ext_resource type="Script" uid="uid://e2ey6a38uckk" path="res://Scripts/room.gd" id="1_dy8a8"]
 [ext_resource type="Texture2D" uid="uid://c6grvy1r0ckk8" path="res://Assets/Background/2.jpeg" id="2_xe7ev"]
 [ext_resource type="PackedScene" uid="uid://bboya8r52ilie" path="res://Scenes/Item.tscn" id="3_wwlvj"]
+[ext_resource type="Script" uid="uid://dwwxcrshdloit" path="res://Scripts/transition_area.gd" id="4_mo16p"]
 
 [sub_resource type="Shader" id="Shader_o25ql"]
 code = "// NOTE: Shader automatically converted from Godot Engine 4.4.1.stable's CanvasItemMaterial.
@@ -13,6 +14,8 @@ render_mode blend_mix;
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wwlvj"]
 shader = SubResource("Shader_o25ql")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_momfn"]
 
 [node name="Room2" type="Node2D"]
 script = ExtResource("1_dy8a8")
@@ -57,3 +60,23 @@ item_name = "Item 5"
 [node name="Item3" parent="Objects" instance=ExtResource("3_wwlvj")]
 position = Vector2(1625, 969)
 item_name = "Item 6"
+
+[node name="Directions" type="Node" parent="."]
+
+[node name="Right" type="Area2D" parent="Directions"]
+position = Vector2(2420, 558)
+scale = Vector2(3.58315, 72.263)
+script = ExtResource("4_mo16p")
+direction = "right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Directions/Right"]
+shape = SubResource("RectangleShape2D_momfn")
+
+[node name="Left" type="Area2D" parent="Directions"]
+position = Vector2(-491, 558)
+scale = Vector2(3.58315, 72.263)
+script = ExtResource("4_mo16p")
+direction = "left"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Directions/Left"]
+shape = SubResource("RectangleShape2D_momfn")
