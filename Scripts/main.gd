@@ -3,7 +3,6 @@ extends Node
 @onready var room_holder = $RoomHolder
 @onready var camera = $Camera2D
 @onready var center_area_2d: Area2D = $CenterArea2D
-@onready var inventory_label: Label = $Camera2D/CanvasLayer/InventoryLabel
 
 @export var initialRoom: PackedScene
 @export var camera_limit_position := Vector2(435, 400)
@@ -25,10 +24,6 @@ func _ready():
 func _process(delta):
 	_update_camera_position(delta)
 	_clamp_camera_within_limits()
-	
-	# momentaneo para probar el inventario
-	var items = Inventory.get_items()
-	inventory_label.text = "Inventario:\n" + "\n".join(items)
 	
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		_show_inventory()

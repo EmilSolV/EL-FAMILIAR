@@ -1,10 +1,11 @@
-Panel
+Sprite2D
 CanvasLayer
+Control
+Node2D
+Panel
 CollisionShape2D
 Area2D
 Node
 Label
-Sprite2D
 Camera2D
-Node2D
 TextEdit

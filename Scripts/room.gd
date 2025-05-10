@@ -14,33 +14,19 @@ func get_connected_room(direction: String) -> PackedScene:
 	match direction:
 		"up":
 			if room_up == null and room_up_path != "":
-				print("Cargando room_up desde: ", room_up_path)
 				room_up = load(room_up_path)
-			else:
-				print("room_up ya está cargado.")
 			return room_up
 		"down":
 			if room_down == null and room_down_path != "":
-				print("Cargando room_down desde: ", room_down_path)
 				room_down = load(room_down_path)
-			else:
-				print("room_down ya está cargado.")
 			return room_down
 		"left":
 			if room_left == null and room_left_path != "":
-				print("Cargando room_left desde: ", room_left_path)
 				room_left = load(room_left_path)
-				print("room_left cargado:", room_left.get_path())
-			else:
-				print("room_left ya está cargado.")
 			return room_left
 		"right":
 			if room_right == null and room_right_path != "":
-				print("Cargando room_right desde: ", room_right_path)
 				room_right = load(room_right_path)
-				print("room_right cargado:", room_right.get_path())
-			else:
-				print("room_right ya está cargado.")
 			return room_right
 		_:
 			print("Dirección no válida:", direction)

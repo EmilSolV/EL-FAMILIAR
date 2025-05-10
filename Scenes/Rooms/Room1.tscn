@@ -1,9 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://bumejct4rvwl8"]
+[gd_scene load_steps=14 format=3 uid="uid://bumejct4rvwl8"]
 
 [ext_resource type="Script" uid="uid://e2ey6a38uckk" path="res://Scripts/room.gd" id="1_io0gx"]
 [ext_resource type="Texture2D" uid="uid://cdl85cxedke5d" path="res://Assets/Background/1.jpeg" id="2_o25ql"]
 [ext_resource type="PackedScene" uid="uid://bboya8r52ilie" path="res://Scenes/Item.tscn" id="3_f4spw"]
+[ext_resource type="Texture2D" uid="uid://d3rel3lonfcx3" path="res://Assets/Items/vela01/vela01.png" id="4_tlmo5"]
 [ext_resource type="Script" uid="uid://dwwxcrshdloit" path="res://Scripts/transition_area.gd" id="4_x5lkd"]
+[ext_resource type="Texture2D" uid="uid://cpphm6k808m7e" path="res://Assets/Items/vela01/vela01_in.png" id="5_y7b8n"]
+[ext_resource type="Texture2D" uid="uid://dhl82fi0r74ji" path="res://Assets/Items/vela01/vela01_eq.png" id="6_54nc4"]
+[ext_resource type="Texture2D" uid="uid://creuywjhd4ra4" path="res://Assets/Items/llave01/llave01.png" id="7_tlmo5"]
+[ext_resource type="Texture2D" uid="uid://bsxqrvbb40i7f" path="res://Assets/Items/llave01/llave01_in.png" id="8_y7b8n"]
+[ext_resource type="Texture2D" uid="uid://odhaxl4kdl4v" path="res://Assets/Items/llave01/llave01_eq.png" id="9_54nc4"]
 
 [sub_resource type="Shader" id="Shader_x5lkd"]
 code = "// NOTE: Shader automatically converted from Godot Engine 4.4.1.stable's CanvasItemMaterial.
@@ -49,17 +55,32 @@ text = "1"
 
 [node name="Objects" type="Node" parent="."]
 
-[node name="Item1" parent="Objects" instance=ExtResource("3_f4spw")]
-position = Vector2(-389, 1106)
-item_name = "Item 1"
+[node name="Vela" parent="Objects" instance=ExtResource("3_f4spw")]
+position = Vector2(1290, 743)
+item_id = "vela_01"
+item_name = "Vela"
+description = "Una vela para alumbrar en la oscuridad"
+required_flags = Array[String]([])
+sprite_in_inventory = ExtResource("5_y7b8n")
+sprite_equipped = ExtResource("6_54nc4")
+sprite_in_world = ExtResource("4_tlmo5")
 
-[node name="Item2" parent="Objects" instance=ExtResource("3_f4spw")]
-position = Vector2(1019, 762)
-item_name = "Item 2"
+[node name="Nota" parent="Objects" instance=ExtResource("3_f4spw")]
+position = Vector2(1721, 696)
+item_id = "nota_01"
+item_name = "Nota"
+description = "Una nota escrita a mano"
+required_flags = Array[String]([])
 
-[node name="Item3" parent="Objects" instance=ExtResource("3_f4spw")]
-position = Vector2(2151, 297)
-item_name = "Item 3"
+[node name="Llave" parent="Objects" instance=ExtResource("3_f4spw")]
+position = Vector2(828, 862)
+item_id = "llave_01"
+item_name = "Llave"
+description = "Una llave común"
+regazo_slot = 1
+sprite_in_inventory = ExtResource("8_y7b8n")
+sprite_equipped = ExtResource("9_54nc4")
+sprite_in_world = ExtResource("7_tlmo5")
 
 [node name="Directions" type="Node" parent="."]
 
