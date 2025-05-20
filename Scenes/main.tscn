@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5tuln3p7c6fu"]
+[gd_scene load_steps=7 format=3 uid="uid://b5tuln3p7c6fu"]
 
 [ext_resource type="Script" uid="uid://kpl5s5lketj0" path="res://Scripts/main.gd" id="1_jjgbg"]
-[ext_resource type="PackedScene" uid="uid://bumejct4rvwl8" path="res://Scenes/Rooms/Room1.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://bumejct4rvwl8" path="res://Scenes/Rooms/Cuarto.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://jc1i6cye3q88" path="res://Scenes/Inventory.tscn" id="3_8gbba"]
 [ext_resource type="Script" uid="uid://datph0d1dlfi0" path="res://Scripts/equipamiento.gd" id="4_jjvhh"]
+[ext_resource type="Texture2D" uid="uid://d3rel3lonfcx3" path="res://Assets/Items/vela01/vela01.png" id="5_kry3j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bo1nx"]
 
@@ -29,3 +30,15 @@ position = Vector2(1346, 910)
 position = Vector2(962, 544)
 scale = Vector2(65.2206, 39.1842)
 shape = SubResource("RectangleShape2D_bo1nx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(3, -1)
+scale = Vector2(0.24, 0.836585)
+texture = ExtResource("5_kry3j")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1920, 1082)
+scale = Vector2(0.24, 0.836585)
+texture = ExtResource("5_kry3j")

@@ -70,6 +70,19 @@ func _change_room(new_room: Node2D):
 	current_room = new_room
 	room_holder.add_child(current_room)
 	current_room.global_position = Vector2.ZERO
+	
+	_connect_transition_signals(current_room)
+
+func _connect_transition_signals(node: Node):
+	for child in node.get_children():
+		if child is Area2D and child.has_signal("room_requested"):
+			child.connect("room_requested", Callable(self, "_on_room_requested"))
+		elif child.get_child_count() > 0:
+			_connect_transition_signals(child)
+
+func _on_room_requested(new_scene: PackedScene):
+	if new_scene:
+		_change_room(new_scene.instantiate())
 
 func _on_mouse_entered():
 	follow_mouse = false

@@ -1,0 +1,92 @@
+[gd_scene load_steps=11 format=3 uid="uid://kpo4y362tudf"]
+
+[ext_resource type="Script" uid="uid://e2ey6a38uckk" path="res://Scripts/room.gd" id="1_onfm5"]
+[ext_resource type="Texture2D" uid="uid://xt3lshjxt0ul" path="res://Assets/Background/cuarto.jpeg" id="2_eatyb"]
+[ext_resource type="Texture2D" uid="uid://ci10sos6cpbwt" path="res://Assets/Background/ala-servicio.jpeg" id="2_onfm5"]
+[ext_resource type="PackedScene" uid="uid://bboya8r52ilie" path="res://Scenes/Item.tscn" id="3_sdugj"]
+[ext_resource type="Script" uid="uid://dwwxcrshdloit" path="res://Scripts/transition_area.gd" id="4_6m4ka"]
+
+[sub_resource type="Shader" id="Shader_sdugj"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.4.1.stable's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_mix;
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6m4ka"]
+shader = SubResource("Shader_sdugj")
+
+[sub_resource type="Shader" id="Shader_pt73s"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.4.1.stable's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_mix;
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_blbko"]
+shader = SubResource("Shader_pt73s")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cefv8"]
+size = Vector2(291.896, 5.07757)
+
+[node name="AlaServicio" type="Node2D"]
+script = ExtResource("1_onfm5")
+
+[node name="Background2" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_6m4ka")
+position = Vector2(-869.019, -328.801)
+scale = Vector2(2.29321, 1.68335)
+texture = ExtResource("2_eatyb")
+offset = Vector2(794.964, 495.618)
+
+[node name="Background" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_blbko")
+position = Vector2(-520.658, -234.072)
+scale = Vector2(1.855, 1.49222)
+texture = ExtResource("2_onfm5")
+offset = Vector2(794.964, 495.618)
+
+[node name="TextEdit" type="TextEdit" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 936.0
+offset_top = 478.0
+offset_right = 984.0
+offset_bottom = 563.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
+text = "3"
+
+[node name="Objects" type="Node" parent="."]
+
+[node name="Item1" parent="Objects" instance=ExtResource("3_sdugj")]
+position = Vector2(195, 644)
+item_name = "Item 7"
+
+[node name="Item2" parent="Objects" instance=ExtResource("3_sdugj")]
+position = Vector2(855, 704)
+item_name = "Item 8"
+
+[node name="Item3" parent="Objects" instance=ExtResource("3_sdugj")]
+position = Vector2(1704, 618)
+item_name = "Item 9"
+
+[node name="Exits" type="Node" parent="."]
+
+[node name="Cocina" type="Area2D" parent="Exits"]
+position = Vector2(201, 1202)
+rotation = 1.57105
+scale = Vector2(3.58315, 72.263)
+script = ExtResource("4_6m4ka")
+target_scene_path = "res://Scenes/Rooms/Cocina.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/Cocina"]
+position = Vector2(-177.913, -26.6089)
+shape = SubResource("RectangleShape2D_cefv8")

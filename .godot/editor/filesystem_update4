@@ -1,0 +1,16 @@
+res://Scenes/Rooms/Salon.tscn
+res://Scenes/Inventory.tscn
+res://Scripts/inventory.gd
+res://Scenes/Rooms/Cuarto.tscn
+res://Scenes/Rooms/Pasillo.tscn
+res://Scenes/Rooms/Bano.tscn
+res://Scenes/Rooms/Oficina.tscn
+res://Scenes/Item.tscn
+res://Scenes/main.tscn
+res://Scenes/Rooms/CuartoHijo.tscn
+res://Scenes/Rooms/Cocina.tscn
+res://Scenes/Rooms/AlaServicio.tscn
+res://Scenes/Rooms/SalaEstar.tscn
+res://Scenes/Rooms/Afuera.tscn
+res://Scripts/transition_area.gd
+res://Scripts/main.gd

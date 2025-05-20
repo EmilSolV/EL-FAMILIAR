@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://gr6osdj7l07i"]
 
 [ext_resource type="Script" uid="uid://e2ey6a38uckk" path="res://Scripts/room.gd" id="1_gy1rm"]
-[ext_resource type="Texture2D" uid="uid://tuexg6v1x74a" path="res://Assets/Background/3.jpeg" id="2_t722u"]
+[ext_resource type="Texture2D" uid="uid://5ha3ljaq1ej5" path="res://Assets/Background/baño.jpeg" id="2_blbko"]
 [ext_resource type="PackedScene" uid="uid://bboya8r52ilie" path="res://Scenes/Item.tscn" id="3_pt73s"]
 [ext_resource type="Script" uid="uid://dwwxcrshdloit" path="res://Scripts/transition_area.gd" id="4_blbko"]
 
@@ -16,21 +16,20 @@ render_mode blend_mix;
 shader = SubResource("Shader_pt73s")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cefv8"]
+size = Vector2(34.2222, 41.2748)
 
-[node name="Room3" type="Node2D"]
+[node name="Bano" type="Node2D"]
 script = ExtResource("1_gy1rm")
-room_right_path = "res://Scenes/Rooms/Room4.tscn"
-room_left_path = "res://Scenes/Rooms/Room1.tscn"
-room_down_path = "res://Scenes/Rooms/Room2.tscn"
 
 [node name="Background" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_blbko")
-position = Vector2(-889, -607)
-scale = Vector2(2.32841, 2.32841)
-texture = ExtResource("2_t722u")
+position = Vector2(-522.658, -234.072)
+scale = Vector2(1.855, 1.49222)
+texture = ExtResource("2_blbko")
 offset = Vector2(794.964, 495.618)
 
 [node name="TextEdit" type="TextEdit" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -61,22 +60,15 @@ item_name = "Item 8"
 position = Vector2(1260, 14)
 item_name = "Item 9"
 
-[node name="Directions" type="Node" parent="."]
+[node name="Exits" type="Node" parent="."]
 
-[node name="Right" type="Area2D" parent="Directions"]
-position = Vector2(2420, 558)
+[node name="Pasillo" type="Area2D" parent="Exits"]
+position = Vector2(201, 1202)
+rotation = 1.57105
 scale = Vector2(3.58315, 72.263)
 script = ExtResource("4_blbko")
-direction = "right"
+target_scene_path = "res://Scenes/Rooms/Pasillo.tscn"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Directions/Right"]
-shape = SubResource("RectangleShape2D_cefv8")
-
-[node name="Left" type="Area2D" parent="Directions"]
-position = Vector2(-491, 558)
-scale = Vector2(3.58315, 72.263)
-script = ExtResource("4_blbko")
-direction = "left"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Directions/Left"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/Pasillo"]
+position = Vector2(-23.4967, -10.4753)
 shape = SubResource("RectangleShape2D_cefv8")

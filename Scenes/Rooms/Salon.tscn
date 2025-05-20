@@ -1,0 +1,124 @@
+[gd_scene load_steps=11 format=3 uid="uid://b3tl64gjocw6c"]
+
+[ext_resource type="Script" uid="uid://e2ey6a38uckk" path="res://Scripts/room.gd" id="1_7we6d"]
+[ext_resource type="Texture2D" uid="uid://xt3lshjxt0ul" path="res://Assets/Background/cuarto.jpeg" id="2_7we6d"]
+[ext_resource type="Texture2D" uid="uid://ua2bhf7vgequ" path="res://Assets/Background/sala-principal.jpeg" id="3_ipawc"]
+[ext_resource type="PackedScene" uid="uid://bboya8r52ilie" path="res://Scenes/Item.tscn" id="4_uy1rm"]
+[ext_resource type="Script" uid="uid://dwwxcrshdloit" path="res://Scripts/transition_area.gd" id="5_fyk6k"]
+
+[sub_resource type="Shader" id="Shader_l4ogv"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.4.1.stable's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_mix;
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ipawc"]
+shader = SubResource("Shader_l4ogv")
+
+[sub_resource type="Shader" id="Shader_tgh4s"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.4.1.stable's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_mix;
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_np3xl"]
+shader = SubResource("Shader_tgh4s")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ldur7"]
+
+[node name="Salon" type="Node2D"]
+script = ExtResource("1_7we6d")
+
+[node name="Background2" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ipawc")
+position = Vector2(-869.019, -328.801)
+scale = Vector2(2.29321, 1.68335)
+texture = ExtResource("2_7we6d")
+offset = Vector2(794.964, 495.618)
+
+[node name="Background" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_np3xl")
+position = Vector2(-520.652, -238.63)
+scale = Vector2(1.85625, 1.50444)
+texture = ExtResource("3_ipawc")
+offset = Vector2(794.964, 495.618)
+
+[node name="TextEdit" type="TextEdit" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 936.0
+offset_top = 478.0
+offset_right = 984.0
+offset_bottom = 563.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
+text = "4"
+
+[node name="Objects" type="Node" parent="."]
+
+[node name="Item1" parent="Objects" instance=ExtResource("4_uy1rm")]
+position = Vector2(203, 463)
+item_name = "Item 10"
+
+[node name="Item2" parent="Objects" instance=ExtResource("4_uy1rm")]
+position = Vector2(1675, 580)
+item_name = "Item 11"
+
+[node name="Item3" parent="Objects" instance=ExtResource("4_uy1rm")]
+position = Vector2(1995, 870)
+item_name = "Item 12"
+
+[node name="Exits" type="Node" parent="."]
+
+[node name="SalaEstar" type="Area2D" parent="Exits"]
+position = Vector2(2186, 439)
+scale = Vector2(17.7209, 30.6263)
+script = ExtResource("5_fyk6k")
+target_scene_path = "res://Scenes/Rooms/SalaEstar.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/SalaEstar"]
+position = Vector2(0.288399, -0.0949526)
+shape = SubResource("RectangleShape2D_ldur7")
+
+[node name="Cocina" type="Area2D" parent="Exits"]
+position = Vector2(-228, 401)
+scale = Vector2(3.58315, 72.263)
+script = ExtResource("5_fyk6k")
+target_scene_path = "res://Scenes/Rooms/Cocina.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/Cocina"]
+position = Vector2(2.23267, 0.0553534)
+scale = Vector2(4.13234, 0.435185)
+shape = SubResource("RectangleShape2D_ldur7")
+
+[node name="Afuera" type="Area2D" parent="Exits"]
+position = Vector2(1002, 337)
+rotation = -1.57079
+scale = Vector2(19.1913, 61.2096)
+script = ExtResource("5_fyk6k")
+target_scene_path = "res://Scenes/Rooms/Afuera.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/Afuera"]
+position = Vector2(-1.67473, -0.0425989)
+scale = Vector2(1.53679, 0.244674)
+shape = SubResource("RectangleShape2D_ldur7")
+
+[node name="Pasillo" type="Area2D" parent="Exits"]
+position = Vector2(951, 1150)
+rotation = -1.57079
+scale = Vector2(-8.24317, 149.005)
+script = ExtResource("5_fyk6k")
+target_scene_path = "res://Scenes/Rooms/Pasillo.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/Pasillo"]
+position = Vector2(-5.21375, 0.00816215)
+shape = SubResource("RectangleShape2D_ldur7")
