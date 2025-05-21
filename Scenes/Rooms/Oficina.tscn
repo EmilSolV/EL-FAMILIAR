@@ -1,9 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bky8alfx2ucl2"]
+[gd_scene load_steps=11 format=3 uid="uid://bky8alfx2ucl2"]
 
 [ext_resource type="Script" uid="uid://e2ey6a38uckk" path="res://Scripts/room.gd" id="1_wf6tt"]
 [ext_resource type="Texture2D" uid="uid://b5dvgkdgnfawf" path="res://Assets/Background/oficina.jpeg" id="2_0ugk3"]
 [ext_resource type="PackedScene" uid="uid://bboya8r52ilie" path="res://Scenes/Item.tscn" id="3_8nq3g"]
 [ext_resource type="Script" uid="uid://dwwxcrshdloit" path="res://Scripts/transition_area.gd" id="4_nn0nk"]
+[ext_resource type="Texture2D" uid="uid://cpphm6k808m7e" path="res://Assets/Items/vela01/vela01_in.png" id="5_nn0nk"]
+[ext_resource type="Texture2D" uid="uid://dhl82fi0r74ji" path="res://Assets/Items/vela01/vela01_eq.png" id="6_5m0pf"]
+[ext_resource type="Texture2D" uid="uid://d3rel3lonfcx3" path="res://Assets/Items/vela01/vela01.png" id="7_lki4o"]
 
 [sub_resource type="Shader" id="Shader_wf6tt"]
 code = "// NOTE: Shader automatically converted from Godot Engine 4.4.1.stable's CanvasItemMaterial.
@@ -48,18 +51,6 @@ text = "5"
 
 [node name="Objects" type="Node" parent="."]
 
-[node name="Item1" parent="Objects" instance=ExtResource("3_8nq3g")]
-position = Vector2(655, 770)
-item_name = "Item 13"
-
-[node name="Item2" parent="Objects" instance=ExtResource("3_8nq3g")]
-position = Vector2(-304, 635)
-item_name = "Item 14"
-
-[node name="Item3" parent="Objects" instance=ExtResource("3_8nq3g")]
-position = Vector2(2079, 646)
-item_name = "Item 15"
-
 [node name="Exits" type="Node" parent="."]
 
 [node name="Pasillo" type="Area2D" parent="Exits"]
@@ -71,5 +62,14 @@ target_scene_path = "res://Scenes/Rooms/Pasillo.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/Pasillo"]
 position = Vector2(-347.201, -0.122347)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_be18u")
+
+[node name="Vela" parent="." instance=ExtResource("3_8nq3g")]
+position = Vector2(775, 846)
+item_id = "vela_01"
+item_name = "Vela"
+description = "Una vela para alumbrar en la oscuridad"
+required_flags = Array[String]([])
+sprite_in_inventory = ExtResource("5_nn0nk")
+sprite_equipped = ExtResource("6_5m0pf")
+sprite_in_world = ExtResource("7_lki4o")

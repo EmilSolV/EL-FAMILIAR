@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://b5a2q4tdmbrvf"]
+
+[ext_resource type="Script" uid="uid://e2ey6a38uckk" path="res://Scripts/room.gd" id="1_ycn8f"]
+[ext_resource type="Texture2D" uid="uid://dlgpv6rfakbi3" path="res://Assets/Background/ventana_hd.png" id="2_kscep"]
+[ext_resource type="Script" uid="uid://dwwxcrshdloit" path="res://Scripts/transition_area.gd" id="3_5c1gj"]
+
+[sub_resource type="Shader" id="Shader_ioklj"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.4.1.stable's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_mix;
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f4spw"]
+shader = SubResource("Shader_ioklj")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4spw"]
+size = Vector2(1.93833, 1042.76)
+
+[node name="VentanaCuarto" type="Node2D"]
+script = ExtResource("1_ycn8f")
+
+[node name="Background" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_f4spw")
+position = Vector2(618.571, 371.732)
+scale = Vector2(0.424458, 0.273937)
+texture = ExtResource("2_kscep")
+offset = Vector2(794.964, 495.618)
+
+[node name="TextEdit" type="TextEdit" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 936.0
+offset_top = 478.0
+offset_right = 984.0
+offset_bottom = 563.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
+text = "1"
+metadata/_edit_use_anchors_ = true
+
+[node name="Objects" type="Node" parent="."]
+
+[node name="Exits" type="Node" parent="."]
+
+[node name="Cuarto" type="Area2D" parent="Exits"]
+position = Vector2(2420, 558)
+scale = Vector2(3.58315, 72.263)
+script = ExtResource("3_5c1gj")
+target_scene_path = "res://Scenes/Rooms/Cuarto.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/Cuarto"]
+position = Vector2(-409.416, 7.44503)
+rotation = 1.57085
+scale = Vector2(1.24613, 0.807192)
+shape = SubResource("RectangleShape2D_f4spw")

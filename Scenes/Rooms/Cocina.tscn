@@ -1,11 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://droy7ictpi5oa"]
+[gd_scene load_steps=11 format=3 uid="uid://droy7ictpi5oa"]
 
 [ext_resource type="Script" uid="uid://e2ey6a38uckk" path="res://Scripts/room.gd" id="1_eqait"]
 [ext_resource type="Texture2D" uid="uid://b0utc0mo7bymi" path="res://Assets/Background/cocina.jpeg" id="2_eqait"]
 [ext_resource type="PackedScene" uid="uid://bboya8r52ilie" path="res://Scenes/Item.tscn" id="3_d3426"]
-[ext_resource type="Texture2D" uid="uid://cpphm6k808m7e" path="res://Assets/Items/vela01/vela01_in.png" id="4_jq0be"]
-[ext_resource type="Texture2D" uid="uid://dhl82fi0r74ji" path="res://Assets/Items/vela01/vela01_eq.png" id="5_72dbp"]
-[ext_resource type="Texture2D" uid="uid://d3rel3lonfcx3" path="res://Assets/Items/vela01/vela01.png" id="6_g3cei"]
 [ext_resource type="Texture2D" uid="uid://bsxqrvbb40i7f" path="res://Assets/Items/llave01/llave01_in.png" id="7_eyftg"]
 [ext_resource type="Texture2D" uid="uid://odhaxl4kdl4v" path="res://Assets/Items/llave01/llave01_eq.png" id="8_43l0k"]
 [ext_resource type="Texture2D" uid="uid://creuywjhd4ra4" path="res://Assets/Items/llave01/llave01.png" id="9_rvb8n"]
@@ -54,25 +51,8 @@ text = "1"
 
 [node name="Objects" type="Node" parent="."]
 
-[node name="Vela" parent="Objects" instance=ExtResource("3_d3426")]
-position = Vector2(1784, 595)
-item_id = "vela_01"
-item_name = "Vela"
-description = "Una vela para alumbrar en la oscuridad"
-required_flags = Array[String]([])
-sprite_in_inventory = ExtResource("4_jq0be")
-sprite_equipped = ExtResource("5_72dbp")
-sprite_in_world = ExtResource("6_g3cei")
-
-[node name="Nota" parent="Objects" instance=ExtResource("3_d3426")]
-position = Vector2(1576, 726)
-item_id = "nota_01"
-item_name = "Nota"
-description = "Una nota escrita a mano"
-required_flags = Array[String]([])
-
 [node name="Llave" parent="Objects" instance=ExtResource("3_d3426")]
-position = Vector2(1814, 742)
+position = Vector2(1129, 662)
 item_id = "llave_01"
 item_name = "Llave"
 description = "Una llave común"
