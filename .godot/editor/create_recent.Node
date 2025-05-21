@@ -1,11 +1,12 @@
 Sprite2D
+ColorRect
+Panel
+Node
 CanvasLayer
 Control
 Node2D
-Panel
 CollisionShape2D
 Area2D
-Node
 Label
 Camera2D
 TextEdit

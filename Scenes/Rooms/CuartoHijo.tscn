@@ -1,14 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://ya8fwho06bwd"]
+[gd_scene load_steps=7 format=3 uid="uid://ya8fwho06bwd"]
 
 [ext_resource type="Script" uid="uid://e2ey6a38uckk" path="res://Scripts/room.gd" id="1_kg3f4"]
 [ext_resource type="Texture2D" uid="uid://kvgj47m4aaom" path="res://Assets/Background/cuarto-hijo.jpeg" id="2_kg3f4"]
-[ext_resource type="PackedScene" uid="uid://bboya8r52ilie" path="res://Scenes/Item.tscn" id="3_hyujt"]
-[ext_resource type="Texture2D" uid="uid://cpphm6k808m7e" path="res://Assets/Items/vela01/vela01_in.png" id="4_a38h6"]
-[ext_resource type="Texture2D" uid="uid://dhl82fi0r74ji" path="res://Assets/Items/vela01/vela01_eq.png" id="5_k8y8a"]
-[ext_resource type="Texture2D" uid="uid://d3rel3lonfcx3" path="res://Assets/Items/vela01/vela01.png" id="6_0jku1"]
-[ext_resource type="Texture2D" uid="uid://bsxqrvbb40i7f" path="res://Assets/Items/llave01/llave01_in.png" id="7_3k7jr"]
-[ext_resource type="Texture2D" uid="uid://odhaxl4kdl4v" path="res://Assets/Items/llave01/llave01_eq.png" id="8_1g7jg"]
-[ext_resource type="Texture2D" uid="uid://creuywjhd4ra4" path="res://Assets/Items/llave01/llave01.png" id="9_wky00"]
 [ext_resource type="Script" uid="uid://dwwxcrshdloit" path="res://Scripts/transition_area.gd" id="10_m2773"]
 
 [sub_resource type="Shader" id="Shader_x5lkd"]
@@ -53,33 +46,6 @@ theme_override_font_sizes/font_size = 50
 text = "1"
 
 [node name="Objects" type="Node" parent="."]
-
-[node name="Vela" parent="Objects" instance=ExtResource("3_hyujt")]
-position = Vector2(778, 849)
-item_id = "vela_01"
-item_name = "Vela"
-description = "Una vela para alumbrar en la oscuridad"
-required_flags = Array[String]([])
-sprite_in_inventory = ExtResource("4_a38h6")
-sprite_equipped = ExtResource("5_k8y8a")
-sprite_in_world = ExtResource("6_0jku1")
-
-[node name="Nota" parent="Objects" instance=ExtResource("3_hyujt")]
-position = Vector2(1576, 726)
-item_id = "nota_01"
-item_name = "Nota"
-description = "Una nota escrita a mano"
-required_flags = Array[String]([])
-
-[node name="Llave" parent="Objects" instance=ExtResource("3_hyujt")]
-position = Vector2(2050, 903)
-item_id = "llave_01"
-item_name = "Llave"
-description = "Una llave común"
-regazo_slot = 1
-sprite_in_inventory = ExtResource("7_3k7jr")
-sprite_equipped = ExtResource("8_1g7jg")
-sprite_in_world = ExtResource("9_wky00")
 
 [node name="Exits" type="Node" parent="."]
 

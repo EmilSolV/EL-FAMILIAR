@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://kpo4y362tudf"]
+[gd_scene load_steps=10 format=3 uid="uid://kpo4y362tudf"]
 
 [ext_resource type="Script" uid="uid://e2ey6a38uckk" path="res://Scripts/room.gd" id="1_onfm5"]
 [ext_resource type="Texture2D" uid="uid://xt3lshjxt0ul" path="res://Assets/Background/cuarto.jpeg" id="2_eatyb"]
 [ext_resource type="Texture2D" uid="uid://ci10sos6cpbwt" path="res://Assets/Background/ala-servicio.jpeg" id="2_onfm5"]
-[ext_resource type="PackedScene" uid="uid://bboya8r52ilie" path="res://Scenes/Item.tscn" id="3_sdugj"]
 [ext_resource type="Script" uid="uid://dwwxcrshdloit" path="res://Scripts/transition_area.gd" id="4_6m4ka"]
 
 [sub_resource type="Shader" id="Shader_sdugj"]
@@ -65,18 +64,6 @@ theme_override_font_sizes/font_size = 50
 text = "3"
 
 [node name="Objects" type="Node" parent="."]
-
-[node name="Item1" parent="Objects" instance=ExtResource("3_sdugj")]
-position = Vector2(195, 644)
-item_name = "Item 7"
-
-[node name="Item2" parent="Objects" instance=ExtResource("3_sdugj")]
-position = Vector2(855, 704)
-item_name = "Item 8"
-
-[node name="Item3" parent="Objects" instance=ExtResource("3_sdugj")]
-position = Vector2(1704, 618)
-item_name = "Item 9"
 
 [node name="Exits" type="Node" parent="."]
 

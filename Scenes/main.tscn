@@ -22,7 +22,7 @@ position = Vector2(962, 542)
 script = ExtResource("4_jjvhh")
 
 [node name="Sprite2D" type="Sprite2D" parent="Camera2D/Equipamiento"]
-position = Vector2(1346, 910)
+position = Vector2(1366, 976)
 
 [node name="CenterArea2D" type="Area2D" parent="."]
 

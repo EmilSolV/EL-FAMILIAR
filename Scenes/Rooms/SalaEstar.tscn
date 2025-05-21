@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cc5dggovx62ea"]
+[gd_scene load_steps=10 format=3 uid="uid://cc5dggovx62ea"]
 
 [ext_resource type="Script" uid="uid://e2ey6a38uckk" path="res://Scripts/room.gd" id="1_dt437"]
 [ext_resource type="Texture2D" uid="uid://dwm0itj7y1bx7" path="res://Assets/Background/sala-estar.jpeg" id="2_dt437"]
 [ext_resource type="Texture2D" uid="uid://xt3lshjxt0ul" path="res://Assets/Background/cuarto.jpeg" id="2_phbe6"]
-[ext_resource type="PackedScene" uid="uid://bboya8r52ilie" path="res://Scenes/Item.tscn" id="3_w8n4n"]
 [ext_resource type="Script" uid="uid://dwwxcrshdloit" path="res://Scripts/transition_area.gd" id="4_x87c7"]
 
 [sub_resource type="Shader" id="Shader_w8n4n"]
@@ -65,18 +64,6 @@ theme_override_font_sizes/font_size = 50
 text = "3"
 
 [node name="Objects" type="Node" parent="."]
-
-[node name="Item1" parent="Objects" instance=ExtResource("3_w8n4n")]
-position = Vector2(364, 717)
-item_name = "Item 7"
-
-[node name="Item2" parent="Objects" instance=ExtResource("3_w8n4n")]
-position = Vector2(1929, 545)
-item_name = "Item 8"
-
-[node name="Item3" parent="Objects" instance=ExtResource("3_w8n4n")]
-position = Vector2(1260, 14)
-item_name = "Item 9"
 
 [node name="Exits" type="Node" parent="."]
 

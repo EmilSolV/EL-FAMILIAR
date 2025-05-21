@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6h6a2cfrtsa"]
+
+[ext_resource type="Script" uid="uid://e2ey6a38uckk" path="res://Scripts/room.gd" id="1_wdvif"]
+[ext_resource type="Script" uid="uid://dwwxcrshdloit" path="res://Scripts/transition_area.gd" id="3_qi6ff"]
+[ext_resource type="Texture2D" uid="uid://bk73pq8otgqfb" path="res://Assets/Items/cuadro_cuarto/cuadro01_eq.png" id="3_wdvif"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4spw"]
+size = Vector2(1.93833, 1069.73)
+
+[node name="CuadroCuarto" type="Node2D"]
+script = ExtResource("1_wdvif")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 936.0
+offset_top = 478.0
+offset_right = 984.0
+offset_bottom = 563.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
+text = "1"
+metadata/_edit_use_anchors_ = true
+
+[node name="Objects" type="Node" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -536.0
+offset_top = -279.0
+offset_right = -496.0
+offset_bottom = -239.0
+scale = Vector2(77.5729, 41.3669)
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(977, 547)
+texture = ExtResource("3_wdvif")
+
+[node name="Exits" type="Node" parent="."]
+
+[node name="Cuarto" type="Area2D" parent="Exits"]
+position = Vector2(1059, 1220)
+scale = Vector2(4.67036, 205.818)
+script = ExtResource("3_qi6ff")
+target_scene_path = "res://Scenes/Rooms/Cuarto.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/Cuarto"]
+position = Vector2(-0.597412, 0.106738)
+rotation = 1.57085
+scale = Vector2(1.24613, 0.807192)
+shape = SubResource("RectangleShape2D_f4spw")
