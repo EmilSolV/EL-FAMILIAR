@@ -1,0 +1,94 @@
+[gd_scene load_steps=5 format=3 uid="uid://da46xukg3yr3x"]
+
+[ext_resource type="Script" uid="uid://e2ey6a38uckk" path="res://Scripts/room.gd" id="1_fgpfo"]
+[ext_resource type="Texture2D" uid="uid://dl4wqtves2je0" path="res://Assets/Background/pasillo.jpeg" id="2_hxglj"]
+[ext_resource type="Script" uid="uid://dwwxcrshdloit" path="res://Scripts/transition_area.gd" id="3_afxp2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_momfn"]
+
+[node name="Pasillo" type="Node2D"]
+script = ExtResource("1_fgpfo")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(956.5, 501.5)
+scale = Vector2(1.85938, 1.49)
+texture = ExtResource("2_hxglj")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 936.0
+offset_top = 478.0
+offset_right = 984.0
+offset_bottom = 563.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
+text = "2"
+
+[node name="Exits" type="Node" parent="."]
+
+[node name="Cuarto" type="Area2D" parent="Exits"]
+position = Vector2(-491, 520)
+scale = Vector2(3.58315, 72.263)
+script = ExtResource("3_afxp2")
+target_scene_path = "res://Scenes/Rooms/Cuarto.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/Cuarto"]
+position = Vector2(107.168, 0.691917)
+rotation = -0.00020216
+scale = Vector2(4.98846, 0.620931)
+shape = SubResource("RectangleShape2D_momfn")
+
+[node name="Baño" type="Area2D" parent="Exits"]
+position = Vector2(-491, 520)
+scale = Vector2(3.58315, 72.263)
+script = ExtResource("3_afxp2")
+target_scene_path = "res://Scenes/Rooms/Bano.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/Baño"]
+position = Vector2(286.898, -0.221414)
+rotation = -0.00020216
+scale = Vector2(2.49891, 0.244784)
+shape = SubResource("RectangleShape2D_momfn")
+
+[node name="Salon" type="Area2D" parent="Exits"]
+position = Vector2(1222, 454)
+scale = Vector2(2.16922, 16.8931)
+script = ExtResource("3_afxp2")
+target_scene_path = "res://Scenes/Rooms/Salon.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/Salon"]
+position = Vector2(-119.169, 0.74727)
+scale = Vector2(-5.25103, 0.559164)
+shape = SubResource("RectangleShape2D_momfn")
+
+[node name="Oficina" type="Area2D" parent="Exits"]
+position = Vector2(1477, 480)
+scale = Vector2(1.56328, 28.2739)
+script = ExtResource("3_afxp2")
+target_scene_path = "res://Scenes/Rooms/Oficina.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/Oficina"]
+position = Vector2(-119.169, 0.74727)
+scale = Vector2(-5.25103, 0.559164)
+shape = SubResource("RectangleShape2D_momfn")
+
+[node name="Cuarto Hijo" type="Area2D" parent="Exits"]
+position = Vector2(2420, 520)
+scale = Vector2(3.58315, 72.263)
+script = ExtResource("3_afxp2")
+target_scene_path = "res://Scenes/Rooms/CuartoHijo.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/Cuarto Hijo"]
+position = Vector2(-119.169, 0.74727)
+scale = Vector2(-5.25103, 0.559164)
+shape = SubResource("RectangleShape2D_momfn")
+
+[node name="Objects" type="Node" parent="."]

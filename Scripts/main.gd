@@ -3,12 +3,13 @@ extends Node
 @onready var room_holder = $RoomHolder
 @onready var camera = $Camera2D
 @onready var center_area_2d: Area2D = $CenterArea2D
-@onready var inventory_label: Label = $Camera2D/CanvasLayer/InventoryLabel
 
 @export var initialRoom: PackedScene
 @export var camera_limit_position := Vector2(435, 400)
 @export var camera_limit_size := Vector2(2950, 1300)
+@export var inventory_scene: PackedScene
 
+var inventory_instance: Node = null
 
 var current_room: Node2D = null
 var camera_limits := Rect2(camera_limit_position, camera_limit_size)
@@ -24,19 +25,13 @@ func _process(delta):
 	_update_camera_position(delta)
 	_clamp_camera_within_limits()
 	
-	# momentaneo para probar el inventario
-	var items = Inventory.get_items()
-	inventory_label.text = "Inventario:\n" + "\n".join(items)
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+		_show_inventory()
+	else:
+		_hide_inventory()
 
 func _input(event):
-	if event.is_action_pressed("ui_up"):
-		_try_move_to("up")
-	elif event.is_action_pressed("ui_down"):
-		_try_move_to("down")
-	elif event.is_action_pressed("ui_left"):
-		_try_move_to("left")
-	elif event.is_action_pressed("ui_right"):
-		_try_move_to("right")
+	pass
 
 func _initialize_first_room():
 	var initial_room = initialRoom.instantiate()
@@ -75,9 +70,32 @@ func _change_room(new_room: Node2D):
 	current_room = new_room
 	room_holder.add_child(current_room)
 	current_room.global_position = Vector2.ZERO
+	
+	_connect_transition_signals(current_room)
+
+func _connect_transition_signals(node: Node):
+	for child in node.get_children():
+		if child is Area2D and child.has_signal("room_requested"):
+			child.connect("room_requested", Callable(self, "_on_room_requested"))
+		elif child.get_child_count() > 0:
+			_connect_transition_signals(child)
+
+func _on_room_requested(new_scene: PackedScene):
+	if new_scene:
+		_change_room(new_scene.instantiate())
 
 func _on_mouse_entered():
 	follow_mouse = false
 
 func _on_mouse_exited():
 	follow_mouse = true
+
+func _show_inventory():
+	if inventory_instance == null:
+		inventory_instance = inventory_scene.instantiate()
+		add_child(inventory_instance)
+
+func _hide_inventory():
+	if inventory_instance != null:
+		inventory_instance.queue_free()
+		inventory_instance = null

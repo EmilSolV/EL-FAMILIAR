@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://jc1i6cye3q88"]
+
+[ext_resource type="Script" uid="uid://cmlu3cb1q5583" path="res://Scenes/inventory_scene.gd" id="1_jbd0o"]
+
+[sub_resource type="Shader" id="Shader_o25ql"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.4.1.stable's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_mix;
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jbd0o"]
+shader = SubResource("Shader_o25ql")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ersrd"]
+load_path = "res://.godot/imported/4d789fdb-71d9-4bf4-8e96-81aebc50d1e9.png-b5c3902293e286fd1556078b1e42f140.ctex"
+
+[node name="Inventory" type="CanvasLayer"]
+script = ExtResource("1_jbd0o")
+
+[node name="Background" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_jbd0o")
+position = Vector2(-39, 1)
+scale = Vector2(1.43394, 1.14326)
+texture = SubResource("CompressedTexture2D_ersrd")
+offset = Vector2(794.964, 495.618)
+
+[node name="InventoryLabel" type="Label" parent="."]
+offset_left = 157.0
+offset_top = 85.0
+offset_right = 242.0
+offset_bottom = 108.0
+scale = Vector2(4.65176, 3.58151)
+text = "Inventario:"
+
+[node name="ItemHolder" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

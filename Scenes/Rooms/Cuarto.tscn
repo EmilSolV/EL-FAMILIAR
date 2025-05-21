@@ -1,0 +1,119 @@
+[gd_scene load_steps=14 format=3 uid="uid://bumejct4rvwl8"]
+
+[ext_resource type="Script" uid="uid://e2ey6a38uckk" path="res://Scripts/room.gd" id="1_io0gx"]
+[ext_resource type="Texture2D" uid="uid://xt3lshjxt0ul" path="res://Assets/Background/cuarto.jpeg" id="2_tlmo5"]
+[ext_resource type="PackedScene" uid="uid://bboya8r52ilie" path="res://Scenes/Item.tscn" id="3_f4spw"]
+[ext_resource type="Texture2D" uid="uid://d3rel3lonfcx3" path="res://Assets/Items/vela01/vela01.png" id="4_tlmo5"]
+[ext_resource type="Script" uid="uid://dwwxcrshdloit" path="res://Scripts/transition_area.gd" id="4_x5lkd"]
+[ext_resource type="Texture2D" uid="uid://cpphm6k808m7e" path="res://Assets/Items/vela01/vela01_in.png" id="5_y7b8n"]
+[ext_resource type="Texture2D" uid="uid://dhl82fi0r74ji" path="res://Assets/Items/vela01/vela01_eq.png" id="6_54nc4"]
+[ext_resource type="Texture2D" uid="uid://creuywjhd4ra4" path="res://Assets/Items/llave01/llave01.png" id="7_tlmo5"]
+[ext_resource type="Texture2D" uid="uid://bsxqrvbb40i7f" path="res://Assets/Items/llave01/llave01_in.png" id="8_y7b8n"]
+[ext_resource type="Texture2D" uid="uid://odhaxl4kdl4v" path="res://Assets/Items/llave01/llave01_eq.png" id="9_54nc4"]
+
+[sub_resource type="Shader" id="Shader_ioklj"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.4.1.stable's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_mix;
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f4spw"]
+shader = SubResource("Shader_ioklj")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4spw"]
+size = Vector2(1.46278, 831.489)
+
+[node name="Cuarto" type="Node2D"]
+script = ExtResource("1_io0gx")
+
+[node name="Background" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_f4spw")
+position = Vector2(-869.019, -328.801)
+scale = Vector2(2.29321, 1.68335)
+texture = ExtResource("2_tlmo5")
+offset = Vector2(794.964, 495.618)
+
+[node name="TextEdit" type="TextEdit" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 936.0
+offset_top = 478.0
+offset_right = 984.0
+offset_bottom = 563.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
+text = "1"
+
+[node name="Objects" type="Node" parent="."]
+
+[node name="Vela" parent="Objects" instance=ExtResource("3_f4spw")]
+position = Vector2(610, 743)
+item_id = "vela_01"
+item_name = "Vela"
+description = "Una vela para alumbrar en la oscuridad"
+required_flags = Array[String]([])
+sprite_in_inventory = ExtResource("5_y7b8n")
+sprite_equipped = ExtResource("6_54nc4")
+sprite_in_world = ExtResource("4_tlmo5")
+
+[node name="Nota" parent="Objects" instance=ExtResource("3_f4spw")]
+position = Vector2(997, 435)
+item_id = "nota_01"
+item_name = "Nota"
+description = "Una nota escrita a mano"
+required_flags = Array[String]([])
+
+[node name="Llave" parent="Objects" instance=ExtResource("3_f4spw")]
+position = Vector2(1622, 729)
+item_id = "llave_01"
+item_name = "Llave"
+description = "Una llave común"
+regazo_slot = 1
+sprite_in_inventory = ExtResource("8_y7b8n")
+sprite_equipped = ExtResource("9_54nc4")
+sprite_in_world = ExtResource("7_tlmo5")
+
+[node name="Exits" type="Node" parent="."]
+
+[node name="Pasillo" type="Area2D" parent="Exits"]
+position = Vector2(2420, 558)
+scale = Vector2(3.58315, 72.263)
+script = ExtResource("4_x5lkd")
+target_scene_path = "res://Scenes/Rooms/Pasillo.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/Pasillo"]
+position = Vector2(-409.046, 7.85981)
+rotation = 1.57085
+shape = SubResource("RectangleShape2D_f4spw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1016, -224)
+scale = Vector2(0.24, 0.836585)
+texture = ExtResource("4_tlmo5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(2436, 540)
+scale = Vector2(0.24, 0.836585)
+texture = ExtResource("4_tlmo5")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(971, 1215)
+scale = Vector2(0.24, 0.836585)
+texture = ExtResource("4_tlmo5")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-530, 500)
+scale = Vector2(0.24, 0.836585)
+texture = ExtResource("4_tlmo5")

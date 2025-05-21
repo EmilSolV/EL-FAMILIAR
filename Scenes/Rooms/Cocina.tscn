@@ -1,0 +1,108 @@
+[gd_scene load_steps=14 format=3 uid="uid://droy7ictpi5oa"]
+
+[ext_resource type="Script" uid="uid://e2ey6a38uckk" path="res://Scripts/room.gd" id="1_eqait"]
+[ext_resource type="Texture2D" uid="uid://b0utc0mo7bymi" path="res://Assets/Background/cocina.jpeg" id="2_eqait"]
+[ext_resource type="PackedScene" uid="uid://bboya8r52ilie" path="res://Scenes/Item.tscn" id="3_d3426"]
+[ext_resource type="Texture2D" uid="uid://cpphm6k808m7e" path="res://Assets/Items/vela01/vela01_in.png" id="4_jq0be"]
+[ext_resource type="Texture2D" uid="uid://dhl82fi0r74ji" path="res://Assets/Items/vela01/vela01_eq.png" id="5_72dbp"]
+[ext_resource type="Texture2D" uid="uid://d3rel3lonfcx3" path="res://Assets/Items/vela01/vela01.png" id="6_g3cei"]
+[ext_resource type="Texture2D" uid="uid://bsxqrvbb40i7f" path="res://Assets/Items/llave01/llave01_in.png" id="7_eyftg"]
+[ext_resource type="Texture2D" uid="uid://odhaxl4kdl4v" path="res://Assets/Items/llave01/llave01_eq.png" id="8_43l0k"]
+[ext_resource type="Texture2D" uid="uid://creuywjhd4ra4" path="res://Assets/Items/llave01/llave01.png" id="9_rvb8n"]
+[ext_resource type="Script" uid="uid://dwwxcrshdloit" path="res://Scripts/transition_area.gd" id="10_rklmi"]
+
+[sub_resource type="Shader" id="Shader_x5lkd"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.4.1.stable's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_mix;
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f4spw"]
+shader = SubResource("Shader_x5lkd")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4spw"]
+size = Vector2(2.10685, 1040.52)
+
+[node name="Cocina" type="Node2D"]
+script = ExtResource("1_eqait")
+
+[node name="Background" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_f4spw")
+position = Vector2(-522.658, -232.072)
+scale = Vector2(1.855, 1.49222)
+texture = ExtResource("2_eqait")
+offset = Vector2(794.964, 495.618)
+
+[node name="TextEdit" type="TextEdit" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 936.0
+offset_top = 478.0
+offset_right = 984.0
+offset_bottom = 563.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
+text = "1"
+
+[node name="Objects" type="Node" parent="."]
+
+[node name="Vela" parent="Objects" instance=ExtResource("3_d3426")]
+position = Vector2(1784, 595)
+item_id = "vela_01"
+item_name = "Vela"
+description = "Una vela para alumbrar en la oscuridad"
+required_flags = Array[String]([])
+sprite_in_inventory = ExtResource("4_jq0be")
+sprite_equipped = ExtResource("5_72dbp")
+sprite_in_world = ExtResource("6_g3cei")
+
+[node name="Nota" parent="Objects" instance=ExtResource("3_d3426")]
+position = Vector2(1576, 726)
+item_id = "nota_01"
+item_name = "Nota"
+description = "Una nota escrita a mano"
+required_flags = Array[String]([])
+
+[node name="Llave" parent="Objects" instance=ExtResource("3_d3426")]
+position = Vector2(1814, 742)
+item_id = "llave_01"
+item_name = "Llave"
+description = "Una llave común"
+regazo_slot = 1
+sprite_in_inventory = ExtResource("7_eyftg")
+sprite_equipped = ExtResource("8_43l0k")
+sprite_in_world = ExtResource("9_rvb8n")
+
+[node name="Exits" type="Node" parent="."]
+
+[node name="Salon" type="Area2D" parent="Exits"]
+position = Vector2(2420, 558)
+scale = Vector2(3.58315, 72.263)
+script = ExtResource("10_rklmi")
+target_scene_path = "res://Scenes/Rooms/Salon.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/Salon"]
+position = Vector2(-409.137, 7.62493)
+rotation = 1.57085
+scale = Vector2(0.999959, 0.797861)
+shape = SubResource("RectangleShape2D_f4spw")
+
+[node name="AlaServicio" type="Area2D" parent="Exits"]
+position = Vector2(2420, 558)
+scale = Vector2(3.58315, 72.263)
+script = ExtResource("10_rklmi")
+target_scene_path = "res://Scenes/Rooms/AlaServicio.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/AlaServicio"]
+position = Vector2(-356.39, -2.6708)
+rotation = 1.57085
+scale = Vector2(3.21197, 0.088914)
+shape = SubResource("RectangleShape2D_f4spw")
