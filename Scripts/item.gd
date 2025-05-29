@@ -43,3 +43,9 @@ func _on_input_event(viewport, event, shape_idx):
 
 		Inventory.add_item(item_data)
 		queue_free()
+
+func _on_mouse_entered():
+	get_tree().get_first_node_in_group("Main").focus_camera_on(global_position)
+
+func _on_mouse_exited():
+	get_tree().get_first_node_in_group("Main").clear_camera_focus()

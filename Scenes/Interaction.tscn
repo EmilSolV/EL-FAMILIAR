@@ -22,3 +22,6 @@ offset_bottom = 94.0
 text = "Item genérico"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

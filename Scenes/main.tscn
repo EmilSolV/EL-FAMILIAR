@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://d3rel3lonfcx3" path="res://Assets/Items/vela01/vela01.png" id="5_kry3j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bo1nx"]
+size = Vector2(13.508, 9.36602)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_jjgbg")
@@ -27,7 +28,7 @@ position = Vector2(1366, 976)
 [node name="CenterArea2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CenterArea2D"]
-position = Vector2(962, 544)
+position = Vector2(966.5, 547.5)
 scale = Vector2(65.2206, 39.1842)
 shape = SubResource("RectangleShape2D_bo1nx")
 

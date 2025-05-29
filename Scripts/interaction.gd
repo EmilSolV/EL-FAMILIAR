@@ -33,3 +33,9 @@ func _show_inspect_scene():
 
 #func _show_message(text):
 	#mostrar mensaje
+
+func _on_mouse_entered():
+	get_tree().get_first_node_in_group("Main").focus_camera_on(global_position)
+
+func _on_mouse_exited():
+	get_tree().get_first_node_in_group("Main").clear_camera_focus()

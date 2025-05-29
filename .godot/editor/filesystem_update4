@@ -1,4 +1,3 @@
-res://Scripts/main.gd
 res://Scenes/Rooms/Cuarto.tscn
 res://Scenes/Rooms/Pasillo.tscn
 res://Scenes/Rooms/Bano.tscn
@@ -13,6 +12,6 @@ res://Scenes/Rooms/SalaEstar.tscn
 res://Scenes/Rooms/Afuera.tscn
 res://Scenes/main.tscn
 res://Scenes/Interaction.tscn
-res://Scripts/interaction.gd
 res://Scenes/CloseUps/VentanaCuarto.tscn
 res://Scenes/CloseUps/CuadroCuarto.tscn
+res://Scripts/main.gd
